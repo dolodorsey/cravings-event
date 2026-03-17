@@ -290,25 +290,147 @@ function VendorCTA() {
 }
 
 // ─── TICKETS ──────────────────────────────────────────────────────────────────
+// ─── TICKET DATA ─────────────────────────────────────────────────────────────
+const HUGLIFE_TICKET_HUB = "https://huglife.vercel.app/#tickets";
+
 function Tickets() {
   return (
-    <section id="tickets" style={{ background: C.base, padding: "120px clamp(24px,5vw,80px)", position: "relative", overflow: "hidden" }}>
-      <div style={{ position: "absolute", inset: 0, background: `radial-gradient(ellipse at 50% 60%, ${C.emberGlow} 0%, transparent 55%)` }} />
+    <section id="tickets" style={{
+      background: C.base, padding: "100px clamp(24px,5vw,80px)",
+      position: "relative", overflow: "hidden",
+    }}>
       <Grain />
-      <div style={{ maxWidth: "720px", margin: "0 auto", textAlign: "center", position: "relative", zIndex: 1 }}>
+      <div style={{ position: "absolute", inset: 0, background: `radial-gradient(ellipse at 50% 60%, ${C.ember}25, transparent 55%)` }} />
+
+      <div style={{ maxWidth: "1200px", margin: "0 auto", position: "relative", zIndex: 1 }}>
         <Reveal>
-          <div style={{ fontFamily: F.mono, fontSize: "9px", letterSpacing: "0.4em", textTransform: "uppercase", color: C.ember, marginBottom: "20px" }}>Secure Your Entry</div>
-          <h2 style={{ fontFamily: F.display, fontSize: "clamp(40px,7vw,100px)", fontStyle: "italic", fontWeight: 700, lineHeight: 0.9, color: C.cream, marginBottom: "24px" }}>Get Your Entry Now</h2>
-          <p style={{ fontFamily: F.sans, fontSize: "15px", lineHeight: 1.85, color: C.muted, maxWidth: "460px", margin: "0 auto 44px" }}>
-            Tickets sell out early. Each edition is a limited event. Secure your entry and come hungry.
-          </p>
-          <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
-            <a href="https://huglife.vercel.app/#tickets" target="_blank" rel="noopener noreferrer" style={{ fontFamily: F.sans, fontSize: "11px", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: C.cream, background: C.ember, padding: "18px 56px", textDecoration: "none", display: "inline-block" }}>Buy Tickets →</a>
-            <a href="mailto:thekollectiveworldwide@gmail.com?subject=Cravings Group Inquiry" style={{ fontFamily: F.sans, fontSize: "11px", fontWeight: 400, letterSpacing: "0.15em", textTransform: "uppercase", color: C.cream, background: "transparent", border: `1px solid ${C.border}`, padding: "18px 44px", textDecoration: "none", display: "inline-block" }}>Group Inquiry</a>
+          <div style={{ fontFamily: F.mono, fontSize: "9px", letterSpacing: "0.4em", textTransform: "uppercase", color: C.ember, marginBottom: "16px" }}>
+            Tickets & Access
           </div>
-          <div style={{ fontFamily: F.mono, fontSize: "10px", color: "rgba(255,255,255,0.2)", marginTop: "20px", letterSpacing: "0.2em" }}>Secure · Eventbrite · No Surprise Fees</div>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "32px", marginBottom: "56px" }}>
+            <h2 style={{ fontFamily: F.display, fontSize: "clamp(36px,6vw,88px)", fontWeight: 600, lineHeight: 0.9, letterSpacing: "0.03em", color: C.cream }}>
+              GET IN THE ROOM
+            </h2>
+            <p style={{ fontFamily: F.body, fontSize: "14px", lineHeight: 1.8, color: C.muted, maxWidth: "360px" }}>
+              Each edition sells out. Secure your entry early and come hungry.
+            </p>
+          </div>
         </Reveal>
+
+        {/* ── PRIMARY TICKET CTA ── */}
+        <Reveal delay={0.1}>
+          <div style={{
+            background: `linear-gradient(135deg, ${C.ember}15, transparent)`,
+            border: `1px solid ${C.ember}30`,
+            padding: "48px 40px",
+            display: "flex", justifyContent: "space-between", alignItems: "center",
+            flexWrap: "wrap", gap: "32px",
+            marginBottom: "3px",
+          }}>
+            <div>
+              <div style={{ fontFamily: F.mono, fontSize: "8px", letterSpacing: "0.4em", textTransform: "uppercase", color: C.ember, marginBottom: "8px" }}>
+                Culinary Festival · Atlanta
+              </div>
+              <div style={{ fontFamily: F.display, fontSize: "clamp(20px,2.5vw,32px)", fontWeight: 600, color: C.cream, marginBottom: "6px" }}>
+                CRAVINGS
+              </div>
+              <div style={{ fontFamily: F.body, fontSize: "13px", color: C.muted }}>
+                Multiple dates — 2026
+              </div>
+
+              {/* Live indicator */}
+              <div style={{ marginTop: "12px", display: "flex", alignItems: "center", gap: "8px" }}>
+                <div style={{
+                  width: "8px", height: "8px", borderRadius: "50%",
+                  background: "#4ADE80", boxShadow: "0 0 8px #4ADE80",
+                  animation: "ticketPulse 2s ease-in-out infinite",
+                }} />
+                <span style={{ fontFamily: F.mono, fontSize: "9px", letterSpacing: "0.3em", color: "#4ADE80", textTransform: "uppercase" }}>
+                  Tickets On Sale Now
+                </span>
+              </div>
+            </div>
+
+            <div style={{ display: "flex", gap: "14px", flexWrap: "wrap" }}>
+              <a
+                href={HUGLIFE_TICKET_HUB}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  fontFamily: F.body, fontSize: "11px", fontWeight: 700,
+                  letterSpacing: "0.15em", textTransform: "uppercase",
+                  color: "#080808", background: C.ember,
+                  padding: "18px 48px", textDecoration: "none", display: "inline-block",
+                  transition: "all 0.3s",
+                }}
+                onMouseEnter={e => (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-2px)"}
+                onMouseLeave={e => (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)"}
+              >
+                Buy Tickets →
+              </a>
+              <a
+                href={"mailto:thekollectiveworldwide@gmail.com?subject=Cravings Vendor Application"}
+                style={{
+                  fontFamily: F.body, fontSize: "11px", fontWeight: 500,
+                  letterSpacing: "0.15em", textTransform: "uppercase",
+                  color: C.cream, background: "transparent",
+                  border: `1px solid ${C.border}`,
+                  padding: "18px 36px", textDecoration: "none", display: "inline-block",
+                  transition: "all 0.3s",
+                }}
+              >
+                Vendor Application
+              </a>
+            </div>
+          </div>
+        </Reveal>
+
+        {/* ── GROUP / ADDITIONAL OPTIONS ── */}
+        <Reveal delay={0.2}>
+          <div style={{
+            display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "2px",
+            background: C.border,
+          }}>
+            {[
+              { icon: "👥", title: "Group Tickets", sub: "10+ people", cta: "Inquire", href: "mailto:thekollectiveworldwide@gmail.com?subject=Group Ticket Inquiry - CRAVINGS" },
+              { icon: "🏢", title: "Corporate / Private", sub: "Buyouts & private events", cta: "Inquire", href: "mailto:thekollectiveworldwide@gmail.com?subject=Corporate Inquiry - CRAVINGS" },
+              { icon: "🤝", title: "Sponsor / Partner", sub: "Brand activation", cta: "Inquire", href: "mailto:thekollectiveworldwide@gmail.com?subject=Sponsor Inquiry - CRAVINGS" },
+            ].map((opt, i) => (
+              <a key={opt.title} href={opt.href} style={{ textDecoration: "none" }}>
+                <div style={{
+                  background: C.surface,
+                  padding: "28px 24px",
+                  display: "flex", flexDirection: "column", gap: "8px",
+                  transition: "background 0.3s",
+                  cursor: "pointer",
+                }}
+                  onMouseEnter={e => (e.currentTarget as HTMLDivElement).style.background = `${C.ember}12`}
+                  onMouseLeave={e => (e.currentTarget as HTMLDivElement).style.background = ""}
+                >
+                  <div style={{ fontSize: "20px" }}>{opt.icon}</div>
+                  <div style={{ fontFamily: F.body, fontSize: "13px", fontWeight: 600, color: C.cream }}>{opt.title}</div>
+                  <div style={{ fontFamily: F.body, fontSize: "11px", color: C.muted }}>{opt.sub}</div>
+                  <div style={{ fontFamily: F.mono, fontSize: "9px", letterSpacing: "0.25em", textTransform: "uppercase", color: C.ember, marginTop: "4px" }}>{opt.cta} →</div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </Reveal>
+
+        {/* Trust signals */}
+        <div style={{ marginTop: "32px", display: "flex", gap: "32px", justifyContent: "center", flexWrap: "wrap" }}>
+          {["Powered by Eventbrite", "Secure Checkout", "Instant Confirmation", "All Ages Welcome"].map(s => (
+            <div key={s} style={{ fontFamily: F.mono, fontSize: "9px", color: "rgba(255,255,255,0.18)", letterSpacing: "0.2em" }}>{s}</div>
+          ))}
+        </div>
       </div>
+
+      <style>{`
+        @keyframes ticketPulse {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.3; }
+        }
+      `}</style>
     </section>
   );
 }
