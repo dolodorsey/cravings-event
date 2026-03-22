@@ -129,7 +129,17 @@ function Hero() {
         @keyframes ember0 { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-24px) scale(0.7)} }
         @keyframes ember1 { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-16px) scale(0.8)} }
         @keyframes ember2 { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-32px) scale(0.6)} }
-      `}</style>
+      `}
+@media(max-width:768px){
+  .dg,.DG,[style*="gridTemplateColumns"]{grid-template-columns:1fr!important}
+  .nl,.desktop-nav{display:none!important}
+  .fg,.stat-grid,.feature-grid{grid-template-columns:1fr!important}
+  .eg{grid-template-columns:1fr!important}
+  h1,h2,.hero-title{word-break:break-word}
+  nav{padding:16px!important}
+  section{padding-left:16px!important;padding-right:16px!important}
+}
+</style>
     </section>
   );
 }
@@ -496,7 +506,7 @@ function Footer() {
 
 export default function Cravings() {
   return (
-    <div style={{ background: C.base }}>
+    <div style={{ background: C.base ,overflowX:'hidden'}}>
       <Nav /><Hero /><MoreThan /><FlavorGrid /><FullSensory /><VendorCTA /><Tickets /><FAQ /><Footer />
     </div>
   );
